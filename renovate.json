@@ -6,7 +6,7 @@
   "customManagers": [
     {
       "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["FROM\\s+restic/restic:(?<currentValue>.*)"],
+      "matchStrings": ["ARG RESTIC_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "restic/restic",
       "versioningTemplate": "semver",
@@ -15,7 +15,7 @@
     },
     {
       "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["FROM\\s+rclone/rclone:(?<currentValue>.*)"],
+      "matchStrings": ["ARG RCLONE_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rclone/rclone",
       "versioningTemplate": "semver",
