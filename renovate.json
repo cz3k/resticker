@@ -2,5 +2,21 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "customManagers": [
+  {
+    "fileMatch": ["^Dockerfile$"],
+    "datasourceTemplate": "github-releases",
+    "depNameTemplate": "restic/restic",
+    "versioningTemplate": "semver",
+    "extractVersionTemplate": "^v(?<version>.*)$"
+  },
+  {
+    "fileMatch": ["^Dockerfile$"],
+    "datasourceTemplate": "github-releases",
+    "depNameTemplate": "rclone/rclone",
+    "versioningTemplate": "semver",
+    "extractVersionTemplate": "^v(?<version>.*)$"
+  }
+ ]
 }
