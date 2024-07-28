@@ -4,23 +4,23 @@
     "config:recommended"
   ],
   "customManagers": [
-  {
-    "fileMatch": ["^Dockerfile$"],
-    "datasourceTemplate": "github-releases",
-    "depNameTemplate": "restic/restic",
-    "versioningTemplate": "semver",
-    "extractVersionTemplate": "^v(?<version>.*)$",
-    "matchStrings": ["ARG RESTIC_VERSION=(?<currentValue>.*)"],
-    "replaceStringTemplate": "ARG RESTIC_VERSION={{newVersion}}"
-  },
-  {
-    "fileMatch": ["^Dockerfile$"],
-    "datasourceTemplate": "github-releases",
-    "depNameTemplate": "rclone/rclone",
-    "versioningTemplate": "semver",
-    "extractVersionTemplate": "^v(?<version>.*)$",
-    "matchStrings": ["ARG RCLONE_VERSION=(?<currentValue>.*)"],
-    "replaceStringTemplate": "ARG RCLONE_VERSION={{newVersion}}"
-  }
- ]
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["FROM\\s+restic/restic:(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "restic/restic",
+      "versioningTemplate": "semver",
+      "extractVersionTemplate": "^v(?<version>.*)$",
+      "currentValueTemplate": "{{ currentValue }}"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["FROM\\s+rclone/rclone:(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "rclone/rclone",
+      "versioningTemplate": "semver",
+      "extractVersionTemplate": "^v(?<version>.*)$",
+      "currentValueTemplate": "{{ currentValue }}"
+    }
+  ]
 }
