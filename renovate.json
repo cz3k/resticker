@@ -10,6 +10,8 @@
     "depNameTemplate": "restic/restic",
     "versioningTemplate": "semver",
     "extractVersionTemplate": "^v(?<version>.*)$"
+    "matchStrings": ["ARG RESTIC_VERSION=(?<currentValue>.*)"],
+    "replaceStringTemplate": "ARG RESTIC_VERSION={{newVersion}}"
   },
   {
     "fileMatch": ["^Dockerfile$"],
@@ -17,6 +19,8 @@
     "depNameTemplate": "rclone/rclone",
     "versioningTemplate": "semver",
     "extractVersionTemplate": "^v(?<version>.*)$"
+    "matchStrings": ["ARG RCLONE_VERSION=(?<currentValue>.*)"],
+    "replaceStringTemplate": "ARG RCLONE_VERSION={{newVersion}}"
   }
  ]
 }
